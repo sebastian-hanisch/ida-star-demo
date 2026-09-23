@@ -1,5 +1,7 @@
 # IDA* – Speicher sparen, aber zu welchem Preis? – Streamlit-Demo
 
+**[→ Demo live ausprobieren](https://sebastianhanisch-ida-star-demo.streamlit.app/)**
+
 Drittes Stück der **Heuristische-Baumsuche-Linie** der "Konzepte"-Reihe für die Website "Sebastian Hanisch – Operations Research und Machine Learning" - die Antwort auf die Schwäche, die [astar-demo](../astar-demo) selbst offen benennt: **A\*** ist optimal, hält aber die gesamte Grenzmenge im Speicher. **IDA\*** (Iterative Deepening A\*, Korf 1985) ersetzt sie durch **wiederholte, tiefenbegrenzte Tiefensuchen** mit einer Schwelle auf f = g + h; gespeichert wird nur der aktuelle Pfad. Der Preis: Knoten werden über die Iterationen (und ohne Closed-Set über verschiedene Wege dorthin) **immer wieder** expandiert.
 
 **Einordnung in die Linie:** derselbe Graph, dieselbe Instanz, derselbe Suchkern wie in [astar-demo](../astar-demo) (dort schon korrektheitsgeprüft); A\* dient hier als Vergleichsgröße. Neu ist `ida_star` mit einer Expansions-Obergrenze als Sicherheitsnetz.
