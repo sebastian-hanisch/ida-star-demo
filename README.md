@@ -9,9 +9,9 @@ Drittes Stück der **Heuristische-Baumsuche-Linie** der "Konzepte"-Reihe für di
 ```
 Greedy Best-First Search (Wurzel)                                                          [gebaut]
  ├─ A* → Iterative Deepening A* (IDA*)                              [A* gebaut, IDA* = DIESES STÜCK]
- ├─ Beam Search → {Diverse Beam Search, Monobeam}                                          [nicht gebaut]
- └─ Monte Carlo Tree Search (MCTS)                                                         [nicht gebaut]
-Beam Search + A* → Beam Stack Search (Konvergenzpunkt)                                     [nicht gebaut]
+ ├─ Beam Search → {Diverse Beam Search, Monobeam}                                          [gebaut]
+ └─ Monte Carlo Tree Search (MCTS)                                                         [gebaut]
+Beam Search + A* → Beam Stack Search (Konvergenzpunkt)                                     [gebaut]
 ```
 
 Ergebnis in Kürze: IDA\* findet ausnahmslos denselben optimalen Pfad wie A\* - aber die Vorab-Hypothese "**der Speichergewinn kommt zu akzeptablen Zeitkosten**" ist **widerlegt**: im Standardfall rund **3x weniger Speicher** (Pfadtiefe 15 gegen im Mittel 47 gespeicherte Knoten) für rund **700x mehr Expansionen** (Median; 231 Iterationen). Der Zeitpreis wächst mit der Rastergröße um Größenordnungen, der Speichervorteil nur langsam - auf dem offenen Feld reißt schon bei Größe 10 die Obergrenze von 1 Mio. Expansionen (4 von 5 Instanzen).
@@ -61,7 +61,7 @@ Die einzelne Instanz (Seed 35) weicht von den Sweep-Medianen ab (z. B. Standardf
 - **Die Ursachen sind nicht isoliert.** Aus der Literatur sind zwei bekannt: reelle Kantengewichte (viele verschiedene Schwellen, also viele Iterationen) und Transpositionen im Raster (viele Wege zum selben Knoten, ohne Closed-Set nicht erkennbar). Hier gemessen ist nur das Ergebnis - dasselbe Knotenmengen-Verhältnis, ~700 Expansionen je Knoten, 231 Iterationen - nicht, wie viel davon auf welche Ursache entfällt. Ebenso wird nicht untersucht, warum der Faktor von 0 auf 10 % Hindernisse zunächst steigt.
 - **Die Faktoren sind schief verteilt**: Median statt Mittelwert; bei abgebrochenen Läufen ist der Faktor nur eine Untergrenze, und Mediane über nur die gelösten Läufe täuschen (die schwersten Instanzen fallen heraus) - beides ist in den Sweeps ausgewiesen.
 - **Nicht gebaut:** Transpositionstabelle (würde Speicher gegen Wiederholung tauschen und damit den Kern der Frage verändern), Varianten für reell bewertete Kosten (z. B. IDA\*_CR).
-- **Andere Wege, den Speicher zu begrenzen** sind die noch nicht gebauten Geschwister: Beam Search und Monte Carlo Tree Search.
+- **Andere Wege, den Speicher zu begrenzen** sind die Geschwister Beam Search und Monte Carlo Tree Search (beide gebaut).
 - **Synthetische Instanzen:** ein Raster mit Jitter, Vierer-Nachbarschaft, keine Zeitfenster, keine gerichteten Kanten; Größen bis 12 im Regler. Andere Graphstrukturen wurden nicht gemessen.
 
 ## Verifikation
@@ -107,6 +107,4 @@ pytest tests/ -v
 
 ---
 
-Teil des [Operations-Research-Demo-Portfolios](https://sebastianhanisch.net/demos.html) von
-[Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning.
-Interesse an einer maßgeschneiderten Lösung? [Kontakt aufnehmen](https://sebastianhanisch.net/kontakt.html).
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Heuristische Baumsuche: Greedy bis MCTS](https://sebastianhanisch.net/konzepte-heuristische-baumsuche.html).

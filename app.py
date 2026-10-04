@@ -66,7 +66,7 @@ Wege zum selben Knoten) **immer wieder** expandiert. Wie hoch ist er hier, auf e
 )
 st.caption(
     "Setzt direkt auf [astar-demo](https://github.com/sebastian-hanisch/astar-demo) auf (derselbe Graph, dieselbe "
-    "Instanz, dasselbe A\\* als Vergleich). Noch nicht gebaute Geschwister: Beam Search → {Diverse Beam Search, "
+    "Instanz, dasselbe A\\* als Vergleich). Geschwister (bereits gebaut): Beam Search → {Diverse Beam Search, "
     "Monobeam}, Monte Carlo Tree Search (MCTS), Beam Search + A\\* → Beam Stack Search."
 )
 
@@ -246,6 +246,6 @@ Implementiert in `idastar_algorithm.py` (Suchkerne aus der A*-Demo, `ida_star` n
 st.markdown("---")
 st.caption(
     "Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – "
-    "Operations Research und Machine Learning. Interesse an einer maßgeschneiderten Lösung für "
-    "Ihr Unternehmen? [Kontakt aufnehmen](https://sebastianhanisch.net/kontakt.html)"
+    "Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). "
+    "Mehr zur Reihe: [Heuristische Baumsuche: Greedy bis MCTS](https://sebastianhanisch.net/konzepte-heuristische-baumsuche.html)."
 )
